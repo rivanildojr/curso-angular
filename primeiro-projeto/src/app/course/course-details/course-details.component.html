@@ -1,0 +1,11 @@
+<p>
+  Lista de cursos do portal {{ portalName }}
+</p>
+
+<ul>
+  @for (course of courses; track $index) {
+    <li>
+      {{course}}
+    </li>
+  }
+</ul>
