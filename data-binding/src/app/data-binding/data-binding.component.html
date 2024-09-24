@@ -1,5 +1,4 @@
 <section class="property-binding">
-
   <article>
     <h3>
       Interpolation / Interpolação
@@ -32,4 +31,38 @@
     <img bind-src="imageURL" alt="Imagem de nature">
   </article>
 
+  <article>
+    <h3>
+      Class e Style Binding
+    </h3>
+
+    <div>
+      Selecione uma classe:
+      <select #classAlert (change)="0">
+        <option value="primary">Primary</option>
+        <option value="secondary">Secondary</option>
+        <option value="success">Success</option>
+        <option value="danger">Danger</option>
+        <option value="warning">Warning</option>
+        <option value="info">Info</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+
+      <br>
+      <br>
+
+      <ngb-alert [type]="classAlert.value">
+        {{ classAlert.value }}
+      </ngb-alert>
+
+      <!-- [style.display]="classAlert.value == 'danger' ? 'block' : 'none -->
+      <ngb-alert
+        type="danger"
+        [style]="{ display: classAlert.value == 'danger' ? 'block' : 'none' }"
+      >
+        Feedback error
+      </ngb-alert>
+    </div>
+  </article>
 </section>

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-data-binding',
   standalone: true,
-  imports: [],
+  imports: [NgbAlertModule],
   templateUrl: './data-binding.component.html',
   styleUrl: './data-binding.component.css'
 })
