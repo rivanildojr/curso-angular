@@ -3,10 +3,12 @@ import { FormsModule } from '@angular/forms';
 
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { InputPropertyComponent } from '../input-property/input-property.component';
+
 @Component({
   selector: 'app-data-binding',
   standalone: true,
-  imports: [FormsModule, NgbAlertModule],
+  imports: [FormsModule, NgbAlertModule, InputPropertyComponent],
   templateUrl: './data-binding.component.html',
   styleUrl: './data-binding.component.css'
 })
@@ -18,6 +20,7 @@ export class DataBindingComponent {
   saveValue: string = '';
   isMouseOver: boolean = false;
   name: string = 'abc';
+  nameCourse: string = 'Angular';
 
   person: any = {
     name: 'Júnior',
