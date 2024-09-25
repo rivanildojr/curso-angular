@@ -171,5 +171,19 @@
     </h3>
 
     <app-course [name]="nameCourse" />
+
+    <app-counter
+      [value]="initialValueCounter"
+      [(valueSecond)]="initialValueCounterSecond"
+      (changeValue)="onChangeValue($event)"
+    />
+
+    <p>
+      Value: {{initialValueCounter}}
+    </p>
+
+    <p>
+      Value: {{initialValueCounterSecond}}
+    </p>
   </article>
 </section>

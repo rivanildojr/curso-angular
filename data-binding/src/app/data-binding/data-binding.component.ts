@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { InputPropertyComponent } from '../input-property/input-property.component';
+import { OutputPropertyComponent } from '../output-property/output-property.component';
 
 @Component({
   selector: 'app-data-binding',
   standalone: true,
-  imports: [FormsModule, NgbAlertModule, InputPropertyComponent],
+  imports: [FormsModule, NgbAlertModule, InputPropertyComponent, OutputPropertyComponent],
   templateUrl: './data-binding.component.html',
   styleUrl: './data-binding.component.css'
 })
@@ -21,6 +22,8 @@ export class DataBindingComponent {
   isMouseOver: boolean = false;
   name: string = 'abc';
   nameCourse: string = 'Angular';
+  initialValueCounter = 15;
+  initialValueCounterSecond = 10;
 
   person: any = {
     name: 'Júnior',
@@ -54,5 +57,9 @@ export class DataBindingComponent {
 
   onChangeName(event: Event) {
     this.name = (<HTMLInputElement>event.target).value;
+  }
+
+  onChangeValue(event: number) {
+    console.log("🚀 ~ DataBindingComponent ~ onChangeValue ~ value:", event);
   }
 }
