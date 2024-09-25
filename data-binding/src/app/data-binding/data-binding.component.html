@@ -1,4 +1,4 @@
-<section class="property-binding">
+<section class="property-binding p-4">
   <article>
     <h3>
       Interpolation / Interpolação
@@ -63,6 +63,51 @@
       >
         Feedback error
       </ngb-alert>
+    </div>
+  </article>
+</section>
+
+<section class="event-binding p-4">
+  <article>
+    <h3>
+      Event Binding
+    </h3>
+
+    <div>
+      <button class="btn btn-primary" (click)="clickButton()">
+        Me clique!
+      </button>
+
+      <br>
+      <br>
+
+      <input
+        type="text"
+        (keyup)="onKeyUp($event)"
+        (keyup.enter)="savedValue(fieldInput.value)"
+        (keyup.shift.enter)="savedValue(fieldInput.value)"
+        (blur)="savedValue(fieldInput.value)"
+        #fieldInput
+      />
+
+      <p>
+        Valor atual: {{ currentValue }}
+      </p>
+
+      <p>
+        Valor salvo: {{ saveValue }}
+      </p>
+
+      <br>
+      <br>
+
+      <span
+        (mouseover)="onMouseOverOut()"
+        (mouseout)="onMouseOverOut()"
+        [class.highlight]="isMouseOver"
+      >
+        Passe o mouse sobre mim
+      </span>
     </div>
   </article>
 </section>
