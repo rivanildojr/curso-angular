@@ -86,7 +86,7 @@
         (keyup)="onKeyUp($event)"
         (keyup.enter)="savedValue(fieldInput.value)"
         (keyup.shift.enter)="savedValue(fieldInput.value)"
-        (blur)="savedValue(fieldInput.value)"
+        on-blur="savedValue(fieldInput.value)"
         #fieldInput
       />
 
@@ -108,6 +108,58 @@
       >
         Passe o mouse sobre mim
       </span>
+    </div>
+  </article>
+</section>
+
+<section class="two-way-binding p-4">
+  <article>
+    <h3>
+      Two-way data binding
+    </h3>
+
+    <div>
+      <input
+        type="text"
+        [value]="name"
+        (input)="onChangeName($event)"
+      />
+
+      <input
+        type="text"
+        [ngModel]="name"
+        (ngModelChange)="name = $event"
+      />
+
+      <input
+        type="text"
+        [(ngModel)]="name"
+      />
+
+      <input
+        type="text"
+        bindon-ngModel="name"
+      />
+
+      <p>
+        Você digitou o nome: {{ name}}
+      </p>
+    </div>
+
+    <div>
+      <p>
+        Meu nome é {{ person.name }} e tenho {{ person.age }} anos de idade.
+      </p>
+
+      <input
+        type="text"
+        [(ngModel)]="person.name"
+      >
+
+      <input
+        type="text"
+        [(ngModel)]="person.age"
+      >
     </div>
   </article>
 </section>

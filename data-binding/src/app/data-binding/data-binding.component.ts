@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-data-binding',
   standalone: true,
-  imports: [NgbAlertModule],
+  imports: [FormsModule, NgbAlertModule],
   templateUrl: './data-binding.component.html',
   styleUrl: './data-binding.component.css'
 })
@@ -16,6 +17,12 @@ export class DataBindingComponent {
   currentValue: string = '';
   saveValue: string = '';
   isMouseOver: boolean = false;
+  name: string = 'abc';
+
+  person: any = {
+    name: 'Júnior',
+    age: 26
+  }
 
   getValor() {
     return 1;
@@ -40,5 +47,9 @@ export class DataBindingComponent {
 
   onMouseOverOut() {
     this.isMouseOver = !this.isMouseOver;
+  }
+
+  onChangeName(event: Event) {
+    this.name = (<HTMLInputElement>event.target).value;
   }
 }
