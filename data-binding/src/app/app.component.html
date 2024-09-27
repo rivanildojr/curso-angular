@@ -1,15 +1,32 @@
 <!-- <app-data-binding /> -->
 
-@if(!removeCycle) {
-  <app-cycle [initialValue]="initialValue"/>
-}
+<section class="lifecycle p-4">
+  @if(!removeCycle) {
+    <app-cycle [initialValue]="initialValue"/>
+  }
 
-<button (click)="changeValue()">
-  Mudar valor
-</button>
+  <button
+    class="btn btn-primary me-4"
+    (click)="changeValue()"
+  >
+    Mudar valor
+  </button>
 
-<button (click)="destroyCycle()">
-  Deletar
-</button>
+  @if (!removeCycle) {
+    <button
+      (click)="destroyCycle()"
+      class="btn btn-secondary"
+    >
+      Deletar
+    </button>
+  } @else {
+    <button
+      (click)="showCycle()"
+      class="btn btn-secondary"
+    >
+      Exibir
+    </button>
+  }
+</section>
 
 <router-outlet />

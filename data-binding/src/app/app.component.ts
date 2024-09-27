@@ -23,4 +23,8 @@ export class AppComponent {
   destroyCycle() {
     this.removeCycle = true;
   }
+
+  showCycle() {
+    this.removeCycle = false;
+  }
 }
