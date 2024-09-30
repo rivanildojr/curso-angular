@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -15,17 +15,18 @@ export class OutputPropertyComponent {
   @Output() changeValue = new EventEmitter();
   @Output() valueSecondChange = new EventEmitter();
 
+  @ViewChild('fieldInput') fieldValueInput!: ElementRef;
+
 
   increment() {
-    this.value++;
+    this.fieldValueInput.nativeElement.value++;
     this.changeValue.emit(this.value);
   }
 
   decrement() {
-    this.value--;
+    this.fieldValueInput.nativeElement.value--;
     this.changeValue.emit(this.value);
   }
-
 
   incrementSecond() {
     this.valueSecond++;
