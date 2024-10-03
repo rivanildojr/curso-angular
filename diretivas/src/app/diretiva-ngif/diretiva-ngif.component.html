@@ -1,1 +1,62 @@
-<p>diretiva-ngif works!</p>
+<h1>
+  'if e *ngif'
+</h1>
+
+@if (courses.length) {
+  <div>
+    Lista de cursos aqui.
+  </div>
+} @else {
+  <div>
+    Não há cursos disponíveis.
+  </div>
+}
+
+<div *ngIf="showCourse">
+  Lista de cursos aqui.
+</div>
+
+<div *ngIf="!showCourse">
+  Não há cursos disponíveis.
+</div>
+
+<br>
+<br>
+
+<div *ngIf="showCourse; else elseBlock">
+  Lista de cursos aqui. 2
+</div>
+
+<ng-template #elseBlock>
+  <div>
+    Não há cursos disponíveis. 2
+  </div>
+</ng-template>
+
+<br>
+<br>
+
+<div *ngIf="showCourse; then thenBlock else elseBlockTwo"></div>
+<ng-template #thenBlock>
+  Lista de cursos aqui. 3
+</ng-template>
+
+<ng-template #elseBlockTwo>
+  Não há cursos disponíveis. 3
+</ng-template>
+
+<br>
+<br>
+
+<button (click)="onShowCourse()">Toggle showCourse</button>
+
+<br>
+<br>
+
+<div [hidden]="showCourse">
+  Lista de cursos aqui.
+</div>
+
+<div [hidden]="!showCourse">
+  Não há cursos disponíveis.
+</div>
