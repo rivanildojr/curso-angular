@@ -1,0 +1,58 @@
+<nav>
+  <nav class="menu__container">
+    <a
+      [class.active]="tab === 'home'"
+      (click)="onSetTab('home')"
+    >
+      Home
+    </a>
+
+    <a
+      [class.active]="tab === 'map'"
+      (click)="onSetTab('map')"
+    >
+      Mapa
+    </a>
+
+    <a
+      [class.active]="tab === 'list'"
+      (click)="onSetTab('list')"
+    >
+      Lista
+    </a>
+  </nav>
+
+  <div [ngSwitch]="tab">
+    <p *ngSwitchCase="'map'">
+      Modo Mapa Ativado
+    </p>
+
+    <p *ngSwitchCase="'list'">
+      Modo Lista Ativado
+    </p>
+
+    <p *ngSwitchDefault>
+      Home
+    </p>
+  </div>
+
+  @switch (tab) {
+    @case ('map') {
+      <p>
+        Modo Mapa Ativado
+      </p>
+    }
+
+    @case ('list') {
+      <p>
+        Modo Lista Ativado
+      </p>
+    }
+
+    @default {
+      <p>
+        Home
+      </p>
+    }
+  }
+</nav>
