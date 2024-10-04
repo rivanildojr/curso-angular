@@ -1,0 +1,48 @@
+<ul>
+  <li *ngFor="let course of courses; let i = index">
+    {{ i + 1 }} - {{ course }}
+  </li>
+</ul>
+
+<br>
+<br>
+
+<ul>
+  <li *ngFor="let course of courses; trackBy: trackByCourses">
+    {{ course }}
+  </li>
+</ul>
+
+<br>
+<br>
+
+<ul>
+  @for (course of courses; track $index) {
+    <li>
+      {{ $index + 1 }} de {{ $count }} - {{ course }}
+      <ng-container *ngIf="$first"> -> Esse é o primeiro</ng-container>
+      <ng-container *ngIf="$last"> -> Esse é o último</ng-container>
+      <ng-container *ngIf="!$even"> -> Esse(s) são pares</ng-container>
+      <ng-container *ngIf="!$odd"> -> Esse(s) são impares</ng-container>
+    </li>
+  }
+</ul>
+
+<br>
+<br>
+
+<ul>
+  @for (course of newCourses; track $index) {
+    <li>
+      {{ $index + 1 }} de {{ $count }} - {{ course }}
+      <ng-container *ngIf="$first"> -> Esse é o primeiro</ng-container>
+      <ng-container *ngIf="$last"> -> Esse é o último</ng-container>
+      <ng-container *ngIf="!$even"> -> Esse(s) são pares</ng-container>
+      <ng-container *ngIf="!$odd"> -> Esse(s) são impares</ng-container>
+    </li>
+  } @empty {
+    <li>
+      Não possui items
+    </li>
+  }
+</ul>
