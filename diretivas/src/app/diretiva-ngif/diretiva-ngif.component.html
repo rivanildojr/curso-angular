@@ -53,10 +53,18 @@
 <br>
 <br>
 
-<div [hidden]="showCourse">
+<div [hidden]="!showCourse">
   Lista de cursos aqui.
 </div>
 
-<div [hidden]="!showCourse">
+<div [hidden]="showCourse">
   Não há cursos disponíveis.
 </div>
+
+<!-- Traduzindo o ngIf -->
+
+<ng-template [ngIf]="showCourse">
+  <div>
+    Lista de cursos aqui. 4
+  </div>
+</ng-template>

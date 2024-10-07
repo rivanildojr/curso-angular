@@ -46,3 +46,12 @@
     </li>
   }
 </ul>
+
+
+<!-- Traduzindo o ngFor -->
+
+<ng-template ngFor [ngForOf]="courses" let-course let-i="index">
+  <li>
+    {{ i + 1 }} - {{ course }}
+  </li>
+</ng-template>
