@@ -4,11 +4,20 @@ import { RouterOutlet } from '@angular/router';
 import { DiretivaNgifComponent } from './diretiva-ngif/diretiva-ngif.component';
 import { DiretivaNgswitchComponent } from './diretiva-ngswitch/diretiva-ngswitch.component';
 import { DiretivaNgforComponent } from './diretiva-ngfor/diretiva-ngfor.component';
+import { DiretivaNgclassComponent } from './diretiva-ngclass/diretiva-ngclass.component';
+import { DiretivaNgstyleComponent } from './diretiva-ngstyle/diretiva-ngstyle.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DiretivaNgifComponent, DiretivaNgswitchComponent, DiretivaNgforComponent],
+  imports: [
+    RouterOutlet,
+    DiretivaNgifComponent,
+    DiretivaNgswitchComponent,
+    DiretivaNgforComponent,
+    DiretivaNgclassComponent,
+    DiretivaNgstyleComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
