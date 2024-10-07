@@ -1,0 +1,15 @@
+.icon {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.favorite {
+  background-color: green;
+}
+
+.not-favorite {
+  background-color: beige;
+}
