@@ -1,0 +1,91 @@
+<!-- Utilizando a diretiva -->
+
+<p backgroundYellow>
+  Texto com fundo amarelo {{ showCourse }}
+</p>
+
+<button backgroundYellow>
+  Botão com o fundo amarelo
+</button>
+
+<button>
+  Botão com o fundo amarelo
+</button>
+
+<br>
+<br>
+
+<!-- Diretiva não aplicada por conta da regra do seletor -->
+
+<div backgroundYellow>
+  Div com o fundo amarelo
+</div>
+
+<span backgroundYellow>asdasdas</span>
+
+<br>
+<br>
+
+<!-- Testando a diretiva "ngNonBindable" -->
+
+<p ngNonBindable backgroundYellow>
+  Texto com fundo amarelo {{ showCourse }}
+</p>
+
+<div ngNonBindable>
+  <p backgroundYellow>
+    Texto sem fundo amarelo {{ showCourse }}
+  </p>
+</div>
+
+<br>
+<br>
+
+<!-- Capturando evento na diretiva -->
+
+<p highlightMouse>
+  Texto com highlight quando passa o mouse
+</p>
+
+<!-- Capturando o valor default da diretiva -->
+
+<!-- <p highlight [defaultColor]="'gray'" [highlightColor]="'red'">
+  Texto com highlight com cores customizadas
+</p> -->
+
+<p highlight="red" defaultColor="gray" fontSize="2">
+  Texto com highlight com cores customizadas
+</p>
+
+<br>
+<br>
+
+<!-- Testando diretivas estuturais -->
+
+<div *ngIf="showCourse">
+  Lista de cursos aqui.
+</div>
+
+<div *ngElse="showCourse">
+  Não há cursos disponíveis.
+</div>
+
+<br>
+<br>
+
+<button (click)="onShowCourse()">Toggle showCourse</button>
+
+<br>
+<br>
+
+<ng-template [ngElse]="showCourse">
+  <div>
+    Não existem cursos para serem listados.
+  </div>
+</ng-template>
+
+<ng-template>
+  <p>
+    Não existem cursos para serem listados.
+  </p>
+</ng-template>
