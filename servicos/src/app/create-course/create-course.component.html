@@ -1,0 +1,22 @@
+<h5>
+  Compartinhando um serviço entre componentes
+</h5>
+
+<input type="text" #courseInput>
+<button (click)="onAddCourse(courseInput.value)">
+  Add course
+</button>
+
+<ul>
+  @for (course of courses; track $index) {
+    <li>
+      {{ course }}
+    </li>
+  } @empty {
+    <p>
+      Não possui cursos
+    </p>
+  }
+</ul>
+
+<app-receive-created-course />

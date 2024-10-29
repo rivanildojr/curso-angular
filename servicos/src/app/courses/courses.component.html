@@ -1,0 +1,15 @@
+<h5>
+  Listas de cursos
+</h5>
+
+<ul>
+  @for (course of courses; track $index) {
+    <li>
+      {{ course }}
+    </li>
+  } @empty {
+    <p>
+      Não possui cursos
+    </p>
+  }
+</ul>
