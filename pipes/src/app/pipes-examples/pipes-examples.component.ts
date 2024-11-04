@@ -9,6 +9,9 @@ import {
   TitleCasePipe
 } from '@angular/common';
 
+import { CamelCasePipe } from '../camel-case.pipe';
+
+
 @Component({
   selector: 'app-pipes-examples',
   standalone: true,
@@ -20,6 +23,7 @@ import {
     JsonPipe,
     LowerCasePipe,
     TitleCasePipe,
+    CamelCasePipe
   ],
   templateUrl: './pipes-examples.component.html',
   styleUrl: './pipes-examples.component.css',
