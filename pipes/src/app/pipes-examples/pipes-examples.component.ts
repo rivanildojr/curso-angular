@@ -6,10 +6,12 @@ import {
   DatePipe,
   JsonPipe,
   LowerCasePipe,
-  TitleCasePipe
+  TitleCasePipe,
 } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { CamelCasePipe } from '../camel-case.pipe';
+import { ArrayFilterPipe } from '../array-filter.pipe';
 
 import { LocaleService } from '../shared/locale.service';
 
@@ -24,7 +26,9 @@ import { LocaleService } from '../shared/locale.service';
     JsonPipe,
     LowerCasePipe,
     TitleCasePipe,
-    CamelCasePipe
+    CamelCasePipe,
+    ArrayFilterPipe,
+    FormsModule,
   ],
   templateUrl: './pipes-examples.component.html',
   styleUrl: './pipes-examples.component.css',
@@ -39,9 +43,17 @@ export class PipesExamplesComponent {
     url: 'http://a.co/glqjpRP',
   };
 
+  books: string[] = ['TypeScript', 'JavaScript'];
+
+  filter!: string;
+
   localeService = inject(LocaleService);
 
   setLanguage(value: string): void {
     this.localeService.setLocale(value);
+  }
+
+  addBook(book: string) {
+    this.books.push(book);
   }
 }
