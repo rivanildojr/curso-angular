@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   UpperCasePipe,
   DecimalPipe,
@@ -11,6 +11,7 @@ import {
 
 import { CamelCasePipe } from '../camel-case.pipe';
 
+import { LocaleService } from '../shared/locale.service';
 
 @Component({
   selector: 'app-pipes-examples',
@@ -37,4 +38,10 @@ export class PipesExamplesComponent {
     publicationDate: new Date(2016, 5, 23),
     url: 'http://a.co/glqjpRP',
   };
+
+  localeService = inject(LocaleService);
+
+  setLanguage(value: string): void {
+    this.localeService.setLocale(value);
+  }
 }
