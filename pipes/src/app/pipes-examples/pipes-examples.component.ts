@@ -7,11 +7,15 @@ import {
   JsonPipe,
   LowerCasePipe,
   TitleCasePipe,
+  AsyncPipe,
 } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { interval, map } from 'rxjs';
+
 import { CamelCasePipe } from '../camel-case.pipe';
 import { ArrayFilterPipe } from '../array-filter.pipe';
+import { ArrayFilterImpurePipe } from '../array-filter-impure.pipe';
 
 import { LocaleService } from '../shared/locale.service';
 
@@ -29,6 +33,8 @@ import { LocaleService } from '../shared/locale.service';
     CamelCasePipe,
     ArrayFilterPipe,
     FormsModule,
+    ArrayFilterImpurePipe,
+    AsyncPipe
   ],
   templateUrl: './pipes-examples.component.html',
   styleUrl: './pipes-examples.component.css',
@@ -49,11 +55,27 @@ export class PipesExamplesComponent {
 
   localeService = inject(LocaleService);
 
+  asyncValue = new Promise<string>((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Async value');
+    }, 2000);
+  });
+
+  asyncValue2 = interval(2000).pipe(
+    map(() => 'Async value 2')
+  );
+
   setLanguage(value: string): void {
     this.localeService.setLocale(value);
   }
 
   addBook(book: string) {
     this.books.push(book);
+  }
+
+  getBooks() {
+    if (this.books.length === 0 || this.filter === undefined || this.filter.trim() === '') return this.books;
+
+    return this.books.filter(book => book.toLocaleLowerCase().indexOf(this.filter) >= 0);
   }
 }

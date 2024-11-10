@@ -46,6 +46,8 @@
   Add Book
 </button>
 
+<h5>Pipe puro</h5>
+
 <ul>
   @for (bookItem of books | arrayFilter:filter; track bookItem) {
     <li>
@@ -53,3 +55,30 @@
     </li>
   }
 </ul>
+
+<h5>Pipe impuro</h5>
+
+<ul>
+  @for (bookItem of books | arrayFilterImpure:filter; track bookItem) {
+    <li>
+      {{ bookItem }}
+    </li>
+  }
+</ul>
+
+<h5>Maneira correta de usar filtro nos projetos</h5>
+
+<ul>
+  @for (bookItem of getBooks(); track bookItem) {
+    <li>
+      {{ bookItem }}
+    </li>
+  }
+</ul>
+
+<br>
+<br>
+
+<p>{{ asyncValue | async }}</p>
+
+<p>{{ asyncValue2 | async }}</p>
