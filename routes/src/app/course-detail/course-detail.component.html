@@ -1,3 +1,9 @@
 <p>
-  id: {{ id}}
+  id: {{ id }}
 </p>
+
+@if (course?.name) {
+  <p>
+    Curso: {{ course.name }}
+  </p>
+}

@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { SinginComponent } from './singin/singin.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { CourseNotFoundComponent } from './course-not-found/course-not-found.component';
 
 export const routes: Routes = [
   {
@@ -21,5 +22,9 @@ export const routes: Routes = [
   {
     path: 'curso/:id',
     component: CourseDetailComponent
+  },
+  {
+    path: 'naoEncontrado',
+    component: CourseNotFoundComponent
   },
 ];

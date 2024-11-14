@@ -1,1 +1,8 @@
-<p>courses works!</p>
+
+<mat-action-list>
+  @for (course of courses; track $index) {
+    <button mat-list-item [routerLink]="['/curso', course.id]">
+      {{ course.name }}
+    </button>
+  }
+</mat-action-list>
