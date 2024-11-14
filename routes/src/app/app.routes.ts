@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SinginComponent } from './singin/singin.component';
 import { CoursesComponent } from './courses/courses.component';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
 
 export const routes: Routes = [
   {
@@ -16,5 +17,9 @@ export const routes: Routes = [
   {
     path: 'cursos',
     component: CoursesComponent
+  },
+  {
+    path: 'curso/:id',
+    component: CourseDetailComponent
   },
 ];
